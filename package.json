@@ -1,0 +1,29 @@
+{
+  "name": "plaza-delta",
+  "version": "0.0.1",
+  "description": "graphql server for plaza delta deliveries",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hey-dev/plaza-delta.git"
+  },
+  "keywords": [],
+  "author": "Alejandro Baez (hey dev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hey-dev/plaza-delta/issues"
+  },
+  "homepage": "https://github.com/hey-dev/plaza-delta#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.11.3",
+    "lodash": "^4.17.4",
+    "nodemon": "^1.12.1"
+  }
+}
