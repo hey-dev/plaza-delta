@@ -1,5 +1,8 @@
 const graphql = require('graphql');
 const axios = require('axios');
+const mongoose = require('mongoose');
+const User = mongoose.model('user');
+
 const { 
 	GraphQLObjectType, 
 	GraphQLString,
@@ -15,8 +18,8 @@ const UserType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		name: { type: GraphQLString },		
 		email: { type: GraphQLString },		
-		phone: { type: GraphQLString }
-	})
+		phone: { type: GraphQLString },
+	})	
 })
 
 // Base Root query Type
@@ -27,7 +30,8 @@ const RootQuery = new GraphQLObjectType({
 	  users: {
 			type: new GraphQLList(UserType),
 			resolve() {
-				return axios.get('https://jsonplaceholder.typicode.com/users').then(res => res.data);
+				console.log(User);
+				return User.find({});
 			}
 		}
 	})

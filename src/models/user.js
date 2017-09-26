@@ -10,3 +10,4 @@ const UserSchema = new Schema({
 });
 
 // add Model methods below ...
+mongoose.model('user', UserSchema)
