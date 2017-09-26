@@ -7,6 +7,8 @@ const {
 	GraphQLList
 } = graphql;
 
+// Base GraphQL Type
+// replace for real Type
 const UserType = new GraphQLObjectType({
 	name: 'User',
 	fields: () => ({
@@ -17,6 +19,8 @@ const UserType = new GraphQLObjectType({
 	})
 })
 
+// Base Root query Type
+// replace with real query roots
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: () => ({
