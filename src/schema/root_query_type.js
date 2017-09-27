@@ -30,7 +30,6 @@ const RootQuery = new GraphQLObjectType({
 	  users: {
 			type: new GraphQLList(UserType),
 			resolve() {
-				console.log(User);
 				return User.find({});
 			}
 		}

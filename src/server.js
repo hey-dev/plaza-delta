@@ -14,24 +14,27 @@ var config = {
   dstPort:27017,
   Password:'',
   localHost:'127.0.0.1',
-  localPort: 27017
+  localPort: 27017,
+  keepAlive:true
 };
 
-  tunnel(config, function (error, server) {
+  const server = tunnel(config, function (error, server) {
 
   if(error){
       console.log("SSH connection error: " + error);
   }
   console.log("Tiner conectado!" + server);
    mongoose.Promise = global.Promise;
-   mongoose.connect('mongodb://localhost/plaza-delta')
-   mongoose.connection.once('open',()=>console.log('Conexion Correcta!')).on('error',error=>console.log(error))
+   mongoose.connect('mongodb://localhost/plaza-delta',{ useMongoClient: true })
+   mongoose.connection.once('open',() => console.log('Conexion Correcta!')).on('error',error=>console.log(error))
 
    app.use(bodyParser.json());
    app.use('/graphql', expressGraphQL({
      schema,
      graphiql: true
   }));
-
+});
+server.on('error', function(err){
+  console.error('Error:', err);
 });
 module.exports = app;
