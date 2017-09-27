@@ -1,18 +1,28 @@
-# plaza delta 
+# plaza-delta
 
 GraphQL server for plaza delta deliveries
 
-### collaborate 
+-----------
 
-Before collaborating check git flow https://github.com/hey-dev/plaza-delta/wiki/Git-flow
+## Installation
 
-Install Dependencies and Run `dev` mode
+Install dependencies and run `dev` mode
 
-`npm i `  
+- `npm i `
+- `npm run dev`
 
-`npm run dev`
+### MongoDB configuration
 
+Put `config.mongodb.json` and `config.sshkey.txt` files in project's root. You can download these files from this [trello card](https://trello.com/c/K8sPWy2k/1-mongodb), if you don't have access please give it to @lejoss or @diegofrayo
 
-GraphiQL Console
+-----------
+
+## Collaborate 
+
+Before collaborating check this git flow: https://github.com/hey-dev/plaza-delta/wiki/Git-flow
+
+-----------
+
+## GraphQL Console
 
 `http://localhost:8000/graphql`

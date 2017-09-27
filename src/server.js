@@ -1,40 +1,45 @@
-const express = require('express');
-const models = require('./models');
-const mongoose = require('mongoose');
-const expressGraphQL = require('express-graphql');
+require('./models');
+
 const bodyParser = require('body-parser');
+const express = require('express');
+const expressGraphQL = require('express-graphql');
+const fs = require('fs');
+const mongoose = require('mongoose');
+const tunnel = require('tunnel-ssh');
+
 const schema = require('./schema/schema');
-var tunnel = require('tunnel-ssh');
+
 const app = express();
-var config = {
-  username:'heydev',
-  host:'35.184.198.215',
-  privateKey:require('fs').readFileSync('/home/godie007/.ssh/heydev'),
-  port:22,
-  dstPort:27017,
-  Password:'',
-  localHost:'127.0.0.1',
-  localPort: 27017,
-  keepAlive:true
-};
 
-  const server = tunnel(config, function (error, server) {
+const config = JSON.parse(fs.readFileSync('config.mongodb.json'));
+config.privateKey = fs.readFileSync('config.sshkey.txt');
 
-  if(error){
-      console.log("SSH connection error: " + error);
+const server = tunnel(config, (error) => {
+
+  if (error) {
+    console.log('SSH connection error:', error);
+    return;
   }
-  console.log("Tiner conectado!" + server);
-   mongoose.Promise = global.Promise;
-   mongoose.connect('mongodb://localhost/plaza-delta',{ useMongoClient: true })
-   mongoose.connection.once('open',() => console.log('Conexion Correcta!')).on('error',error=>console.log(error))
 
-   app.use(bodyParser.json());
-   app.use('/graphql', expressGraphQL({
-     schema,
-     graphiql: true
+  console.log('tunnel connected!');
+
+  mongoose.Promise = global.Promise;
+  mongoose.connect('mongodb://localhost/plaza-delta', {
+    useMongoClient: true,
+  });
+  mongoose.connection
+    .once('open', () => console.log('MongoDB connection success!'))
+    .on('error', err => console.log(err));
+
+  app.use(bodyParser.json());
+  app.use('/graphql', expressGraphQL({
+    graphiql: true,
+    schema,
   }));
 });
-server.on('error', function(err){
+
+server.on('error', (err) => {
   console.error('Error:', err);
 });
+
 module.exports = app;
