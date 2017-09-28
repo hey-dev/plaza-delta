@@ -1,10 +1,11 @@
-const graphql = require('graphql');
+const { makeExecutableSchema } = require('graphql-tools');
+const resolvers = require('../resolvers');
 const RootQueryType = require('./root_query_type');
+const User = require('./user_type')
 
-const {
-  GraphQLSchema,
-} = graphql;
+const schema = makeExecutableSchema({
+  typeDefs: [RootQueryType, User],
+  resolvers
+})
 
-module.exports = new GraphQLSchema({
-  query: RootQueryType,
-});
+module.exports = schema
