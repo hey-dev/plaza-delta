@@ -2,23 +2,18 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const DeliveryManSchema = new Schema({
   fullName: {
     type: String,
   },
   email: {
     type: String,
-    unique: true 
   },
   phone: {
     type: String,
   },
   document: {
     type: String,
-  },
-  idAccount: {
-    type: Schema.Types.ObjectId,
-    ref: 'account'
   },
   createdAt: {
     type: Date,
@@ -30,4 +25,4 @@ const UserSchema = new Schema({
 });
 
 // add Model methods below ...
-mongoose.model('user', UserSchema);
+mongoose.model('deliveryMan', DeliveryManSchema);

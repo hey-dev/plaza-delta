@@ -1,8 +1,12 @@
 module.exports = `
 type User {
 	id: ID!
-	name: String!
+	fullName: String!
 	email: String!
 	phone: String
+	document: String
+	account:Account
+	createdAt: String
+	updatedAt: String
 }
 `

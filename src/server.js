@@ -20,7 +20,7 @@ const server = tunnel(config, (error) => {
     console.log('SSH connection error:', error);
     return;
   } 
-
+  
   mongoose.Promise = global.Promise;
   mongoose.connect('mongodb://localhost/plaza-delta', {
     useMongoClient: true,

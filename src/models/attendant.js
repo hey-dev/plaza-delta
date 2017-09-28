@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const AttendantSchema = new Schema({
   fullName: {
     type: String,
   },
@@ -16,10 +16,6 @@ const UserSchema = new Schema({
   document: {
     type: String,
   },
-  idAccount: {
-    type: Schema.Types.ObjectId,
-    ref: 'account'
-  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -30,4 +26,4 @@ const UserSchema = new Schema({
 });
 
 // add Model methods below ...
-mongoose.model('user', UserSchema);
+mongoose.model('attendant', AttendantSchema);
