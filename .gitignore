@@ -63,3 +63,4 @@ config.mongodb.json
 config.sshkey.txt
 .vscode
 .idea
+dist/

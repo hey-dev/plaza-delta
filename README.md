@@ -9,7 +9,7 @@ GraphQL server for plaza delta deliveries
 Install dependencies and run `dev` mode
 
 - `npm i `
-- `npm run dev`
+- `npm start`
 
 ### MongoDB configuration
 

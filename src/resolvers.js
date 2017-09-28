@@ -1,10 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 const User = mongoose.model('user');
 
 const resolvers = {
   Query: {
-    users: () => User.find({})
-  }
-}
+    users: () => User.find({}),
+  },
+};
 
-module.exports = resolvers
+export default resolvers;

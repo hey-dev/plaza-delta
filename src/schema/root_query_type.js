@@ -1,6 +1,5 @@
-const User = require('./user_type')
-module.exports = `
+export default `
   type Query {
     users: [User]
   }
-`
+`;

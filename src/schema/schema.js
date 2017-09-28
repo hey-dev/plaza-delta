@@ -1,11 +1,12 @@
-const { makeExecutableSchema } = require('graphql-tools');
-const resolvers = require('../resolvers');
-const RootQueryType = require('./root_query_type');
-const User = require('./user_type')
+import { makeExecutableSchema } from 'graphql-tools';
+
+import resolvers from '../resolvers';
+import RootQueryType from './root_query_type';
+import User from './user_type';
 
 const schema = makeExecutableSchema({
   typeDefs: [RootQueryType, User],
-  resolvers
-})
+  resolvers,
+});
 
-module.exports = schema
+export default schema;

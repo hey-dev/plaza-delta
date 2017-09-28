@@ -1,14 +1,13 @@
-require('./models');
+import bodyParser from 'body-parser';
+import express from 'express';
+import expressGraphQL from 'express-graphql';
+import fs from 'fs';
+import mongoose from 'mongoose';
+import tunnel from 'tunnel-ssh';
 
-const bodyParser = require('body-parser');
-const express = require('express');
-const expressGraphQL = require('express-graphql');
-const fs = require('fs');
-const mongoose = require('mongoose');
-const tunnel = require('tunnel-ssh');
-
-const schema = require('./schema/schema');
-const resolvers = require('./resolvers');
+import './models';
+import schema from './schema/schema';
+import resolvers from './resolvers';
 
 const app = express();
 
@@ -16,10 +15,11 @@ const config = JSON.parse(fs.readFileSync('config.mongodb.json'));
 config.privateKey = fs.readFileSync('config.sshkey.txt');
 
 const server = tunnel(config, (error) => {
+
   if (error) {
     console.log('SSH connection error:', error);
     return;
-  } 
+  }
 
   mongoose.Promise = global.Promise;
   mongoose.connect('mongodb://localhost/plaza-delta', {
@@ -41,4 +41,4 @@ server.on('error', (err) => {
   console.error('Error:', err);
 });
 
-module.exports = app;
+export default app;
