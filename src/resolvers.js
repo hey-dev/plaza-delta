@@ -4,9 +4,15 @@ const Account = mongoose.model('account');
 
 const resolvers = {
   Query: {
-    users: () => User.find({}),
-    accounts: () => Account.find({}),
     user: (parentValue, args) => User.findById(args.id),
+    users: () => User.find({}),
+    account: (parentValue, args)  => Account.findById(args.id),
+    accounts: () => Account.find({}),
+  },
+  User: {
+    account(user) {
+      return User.findAccount(user._id)
+    }
   }
 }
 

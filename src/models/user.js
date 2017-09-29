@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -16,7 +15,7 @@ const UserSchema = new Schema({
   document: {
     type: String,
   },
-  idAccount: {
+  account: {
     type: Schema.Types.ObjectId,
     ref: 'account'
   },
@@ -29,5 +28,10 @@ const UserSchema = new Schema({
   }
 });
 
-// add Model methods below ...
+UserSchema.statics.findAccount = function(id) {
+  return this.findById(id)
+    .populate('account')
+    .then(user => user.account);
+}
+
 mongoose.model('user', UserSchema);

@@ -1,10 +1,9 @@
 require('./account');
 require('./user');
 require('./order');
-require('./searchHistory');
+require('./search_history');
 require('./feedback');
 require('./establishment');
 require('./product');
-require('./deliveryMan');
+require('./delivery_man');
 require('./deliveries');
-require('./searchHistory');
