@@ -1,4 +1,5 @@
 module.exports = `
+  # Root
   type Query {
     users: [User]
     user(id: String): User

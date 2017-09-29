@@ -8,6 +8,7 @@ module.exports = `
 		createdAt: String
 		updatedAt: String
 	}
+	# args
 	input AccountInput {
 		username: String
 		password: String

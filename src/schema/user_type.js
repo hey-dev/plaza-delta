@@ -9,11 +9,11 @@ module.exports = `
 		createdAt: String
 		updatedAt: String
 	}	
+	# args
 	input UserInput {
 		fullName: String
 		email: String
 		phone: String
 		document: String
-		account: String
 	}
 `
