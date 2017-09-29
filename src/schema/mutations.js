@@ -1,6 +1,5 @@
 module.exports = `
 type Mutation {
-    createAccount(account: AccountInput): Account  
-    createUser(user: UserInput): User  
+    createUser(account: AccountInput,user: UserInput): User  
 }
 `

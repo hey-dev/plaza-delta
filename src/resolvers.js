@@ -15,8 +15,10 @@ const resolvers = {
     }
   },
   Mutation: {
-    createAccount: (_, args) => Account.create(args.account),
-    createUser: (_, args) => User.create(args.user)
+    createUser: (_, args) => Account.create(args.account).then(accunt => {
+      args.user['account'] = accunt.id
+      return User.create(args.user)
+    })
   } 
 }
 
