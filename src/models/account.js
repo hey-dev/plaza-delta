@@ -14,7 +14,7 @@ const AccountSchema = new Schema({
     unique: true 
   },
   showTutorial: {
-    type: Boolean,
+    type: Boolean, default: true
   },
   createdAt: {
     type: Date,

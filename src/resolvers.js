@@ -13,7 +13,11 @@ const resolvers = {
     account(user) {
       return User.findAccount(user._id)
     }
-  }
+  },
+  Mutation: {
+    createAccount: (_, args) => Account.create(args.account),
+    createUser: (_, args) => User.create(args.user)
+  } 
 }
 
 module.exports = resolvers
