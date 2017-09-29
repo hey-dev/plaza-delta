@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const User = mongoose.model('user');
 
@@ -8,4 +8,4 @@ const resolvers = {
   },
 };
 
-export default resolvers;
+module.exports = resolvers;

@@ -19,7 +19,8 @@ Put `config.mongodb.json` and `config.sshkey.txt` files in project's root. You c
 
 ## Collaborate 
 
-Before collaborating check this git flow: https://github.com/hey-dev/plaza-delta/wiki/Git-flow
+- Before collaborating check this git flow: https://github.com/hey-dev/plaza-delta/wiki/Git-flow
+- Please run `npm run lint` and write pretty code! :)
 
 -----------
 

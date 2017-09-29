@@ -1,13 +1,14 @@
-import bodyParser from 'body-parser';
-import express from 'express';
-import expressGraphQL from 'express-graphql';
-import fs from 'fs';
-import mongoose from 'mongoose';
-import tunnel from 'tunnel-ssh';
+require('./models');
 
-import './models';
-import schema from './schema/schema';
-import resolvers from './resolvers';
+const bodyParser = require('body-parser');
+const express = require('express');
+const expressGraphQL = require('express-graphql');
+const fs = require('fs');
+const mongoose = require('mongoose');
+const tunnel = require('tunnel-ssh');
+
+const schema = require('./schema/schema');
+const resolvers = require('./resolvers');
 
 const app = express();
 
@@ -41,4 +42,4 @@ server.on('error', (err) => {
   console.error('Error:', err);
 });
 
-export default app;
+module.exports = app;
