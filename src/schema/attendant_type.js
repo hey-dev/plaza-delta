@@ -1,19 +1,19 @@
 module.exports = `
-	type User {
+  type Attendant {
 		id: ID!
 		fullName: String!
 		email: String!
 		phone: String!
 		document: String!
-		account: Account
 		createdAt: String
 		updatedAt: String
-	}	
-	# args
-	input UserInput {
+ 	}
+
+  #args 
+  input AttendantInput {
 		fullName: String!
 		email: String!
 		phone: String!
 		document: String!
-	}
-`
+ }
+`;

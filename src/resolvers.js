@@ -5,9 +5,7 @@ const Account = mongoose.model("account");
 const resolvers = {
   Query: {
     user: (parentValue, args) => User.findById(args.id),
-    users: () => User.find({}),
-    account: (parentValue, args) => Account.findById(args.id),
-    accounts: () => Account.find({})
+    users: () => User.find({})
   },
   User: {
     account(user) {
@@ -20,6 +18,7 @@ const resolvers = {
         user['account'] = account.id;
         return User.create(user);
       })
+      .catch(err => console.log(err))
   }
 };
 

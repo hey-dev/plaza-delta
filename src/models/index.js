@@ -5,5 +5,5 @@ require('./search_history');
 require('./feedback');
 require('./establishment');
 require('./product');
-require('./delivery_man');
+require('./carrier');
 require('./deliveries');

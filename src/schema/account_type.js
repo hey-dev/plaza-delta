@@ -13,5 +13,5 @@ module.exports = `
 		username: String
 		password: String
 		token: String
-	  }
+	}
 `
