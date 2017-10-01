@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // [Order|idOrder;idUser;idEstablishment;idProduct;createdAt;updatedAt]
 const OrderSchema = new Schema({
-  idUser: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'user'
   },
-  idEstablishment: {
+  establishment: {
     type: Schema.Types.ObjectId,
     ref: 'establishment'
   },
-  idProduct: {
+  product: {
     type: Schema.Types.ObjectId,
     ref: 'product'
   },

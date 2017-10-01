@@ -8,5 +8,8 @@ module.exports = `
     
     # Feedback
     createFeedback(feedback: FeedbackInput): Feedback
+
+    # Product
+    createProduct(product: ProductInput): Product
   }
 `;
