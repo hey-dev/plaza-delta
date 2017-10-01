@@ -5,5 +5,8 @@ module.exports = `
 
     # Establishment - Attendant
     createEstablishment(attendant: AttendantInput, establishment: EstablishmentInput): Establishment
+    
+    # Feedback
+    createFeedback(feedback: FeedbackInput): Feedback
   }
 `;

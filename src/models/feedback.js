@@ -1,17 +1,16 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-// [Feedback|idFeedback;idUser;idEstablishment;description;ranking;createdAt;updatedAt]
+
 const DeliveriesSchema = new Schema({
-  idUser: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: 'user'
   },
-  idEstablishment: {
+  establishment: {
     type: Schema.Types.ObjectId,
     ref: 'establishment'
   },
-  description: {
+  comment: {
     type: String,
   },
   ranking: {
