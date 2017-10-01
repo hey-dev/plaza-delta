@@ -3,6 +3,7 @@ const Account = mongoose.model('account');
 const Attendant = mongoose.model('attendant');
 const Establishment = mongoose.model('establishment');
 const Feedback = mongoose.model('feedback');
+const Order = mongoose.model('order');
 const Product = mongoose.model('product');
 const User = mongoose.model('user');
 
@@ -39,7 +40,8 @@ const resolvers = {
       }).catch(err => console.log(err)),
 
       createFeedback: (_, { feedback }) => Feedback.create(feedback),
-      createProduct: (_, { product }) => Product.create(product)
+      createProduct: (_, { product }) => Product.create(product),
+      createOrder: (_, { order }) => Order.create(order),
 
   }
 };

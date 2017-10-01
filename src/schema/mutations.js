@@ -11,5 +11,8 @@ module.exports = `
 
     # Product
     createProduct(product: ProductInput): Product
+
+    # Order
+    createOrder(order: OrderInput): Order
   }
 `;
