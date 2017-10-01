@@ -7,7 +7,7 @@ const DeliveriesSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'deliveryMan',
   },
-  idEstablishment: {
+  Establishment: {
     type: Schema.Types.ObjectId,
     ref: 'establishment'
   },

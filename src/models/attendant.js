@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
 const AttendantSchema = new Schema({
@@ -25,5 +24,4 @@ const AttendantSchema = new Schema({
   }
 });
 
-// add Model methods below ...
 mongoose.model('attendant', AttendantSchema);

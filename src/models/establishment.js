@@ -1,8 +1,5 @@
-const mongoose = require("mongoose");
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
-//[Establishment|idEstablishment;name;address;phone;idAttendant;zone;lon
 
 const EstablishmentSchema = new Schema({
   name: {
@@ -16,9 +13,9 @@ const EstablishmentSchema = new Schema({
     type: String,
     unique: true
   },
-  Attendant: {
+  attendant: {
     type: Schema.Types.ObjectId,
-    ref: "attendant"
+    ref: 'attendant'
   },
   zone: {
     type: String
@@ -44,4 +41,4 @@ EstablishmentSchema.statics.findAttendant = function(id) {
     .then(establishment => establishment.attendant);
 };
 
-mongoose.model("establishment", EstablishmentSchema);
+mongoose.model('establishment', EstablishmentSchema);
