@@ -23,6 +23,6 @@ Before collaborating check this git flow: https://github.com/hey-dev/plaza-delta
 
 -----------
 
-## GraphQL Console
+## GraphiQL Console
 
 `http://localhost:8000/graphql`
