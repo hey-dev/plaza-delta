@@ -6,6 +6,9 @@ const Feedback = mongoose.model('feedback');
 const Order = mongoose.model('order');
 const Product = mongoose.model('product');
 const User = mongoose.model('user');
+const ShoppingCart = mongoose.model('shoppingCart');
+const _ = require('lodash');
+
 
 
 const resolvers = {
@@ -41,8 +44,14 @@ const resolvers = {
 
       createFeedback: (_, { feedback }) => Feedback.create(feedback),
       createProduct: (_, { product }) => Product.create(product),
-      createOrder: (_, { order }) => Order.create(order),
-
+      createOrder: (_, { order,shoppingCart }) => 
+        Order.create(order).then(order => {
+          shoppingCart.forEach(cart => {
+            cart['order'] = order.id;
+            ShoppingCart.create(cart);
+          })
+          return order;
+        }),
   }
 };
 

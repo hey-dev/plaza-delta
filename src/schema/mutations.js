@@ -13,6 +13,6 @@ module.exports = `
     createProduct(product: ProductInput): Product
 
     # Order
-    createOrder(order: OrderInput): Order
+    createOrder(order: OrderInput, shoppingCart: [ShoppingCartInput]): Order
   }
 `;

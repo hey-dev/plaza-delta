@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 // [Order|idOrder;idUser;idEstablishment;idProduct;createdAt;updatedAt]
-const OrderSchema = new Schema({
-  user: {
+const ShoppingCart = new Schema({
+  product: {
     type: Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'product'
   },
-  address: {
-    type: String,
+  order: {
+    type: Schema.Types.ObjectId,
+    ref: 'order'
   },
-  total: {
-    type: Number,
+  quantity: {
+    type:Number
   },
   createdAt: {
     type: Date,
@@ -23,4 +24,4 @@ const OrderSchema = new Schema({
 });
 
 // add Model methods below ...
-mongoose.model('order', OrderSchema);
+mongoose.model('shoppingCart', ShoppingCart);

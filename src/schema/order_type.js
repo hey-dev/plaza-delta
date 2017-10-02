@@ -2,15 +2,15 @@ module.exports = `
 	type Order {
 		id: ID!
 		user: User!
-		establishment: Establishment!
-		product: Product!
+		address: String!
+		total: Float!
 		createdAt: String
 		updatedAt: String
 	}	
 	# args
 	input OrderInput {		
 		user: String!
-		establishment: String!
-		product: String!
+		address: String!
+		total: Float!
 	}
 `
