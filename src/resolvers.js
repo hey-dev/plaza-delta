@@ -51,7 +51,7 @@ const resolvers = {
           ShoppingCart.create(cart);
         });
         return orderCreated;
-      }),
+      }).catch(err => console.log(err)),
   },
 };
 

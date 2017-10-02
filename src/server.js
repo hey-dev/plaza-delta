@@ -1,9 +1,6 @@
 require('./models');
 
-const {
-  graphqlExpress,
-  graphiqlExpress,
-} = require('apollo-server-express');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
