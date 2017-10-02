@@ -12,8 +12,7 @@ Install dependencies and run `dev` mode
 - `npm run dev`
 
 ### MongoDB configuration
-
-Put `config.mongodb.json` and `config.sshkey.txt` files in project's root. You can download these files from this [trello card](https://trello.com/c/K8sPWy2k/1-mongodb), if you don't have access please give it to @lejoss or @diegofrayo
+install mongodb and run as local service
 
 -----------
 
