@@ -1,36 +1,37 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
 const CarrierSchema = new Schema({
   establishment: {
     type: Schema.Types.ObjectId,
-    ref: "establishment"
+    ref: 'establishment',
   },
   fullName: {
-    type: String
+    type: String,
   },
   email: {
-    type: String
+    type: String,
   },
   phone: {
-    type: String
+    type: String,
   },
   document: {
-    type: String
+    type: String,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
-    type: Date
-  }
+    type: Date,
+  },
 });
 
-CarrierSchema.statics.findEstablisment = function(id) {
+CarrierSchema.statics.findEstablisment = function findEstablisment(id) {
   return this.findById(id)
-    .populate("establishment")
+    .populate('establishment')
     .then(carrier => carrier.establishment);
 };
-mongoose.model("carrier", CarrierSchema);
+
+mongoose.model('carrier', CarrierSchema);

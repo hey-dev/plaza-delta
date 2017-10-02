@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ProductSchema = new Schema({
   establishment: {
     type: Schema.Types.ObjectId,
-    ref: 'establishment'
+    ref: 'establishment',
   },
   name: {
     type: String,
@@ -18,11 +18,11 @@ const ProductSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-  }
+  },
 });
 
 // add Model methods below ...

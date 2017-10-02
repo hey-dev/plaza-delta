@@ -6,5 +6,5 @@ module.exports = `
     establishment(id: String): Establishment
     establishments: [Establishment]
     feedback(id: String): Feedback
-  } 
-`
+  }
+`;

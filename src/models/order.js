@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
+
 // [Order|idOrder;idUser;idEstablishment;idProduct;createdAt;updatedAt]
 const OrderSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'user',
   },
   address: {
     type: String,
@@ -15,11 +16,11 @@ const OrderSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-  }
+  },
 });
 
 // add Model methods below ...

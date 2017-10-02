@@ -1,19 +1,19 @@
 module.exports = `
   type Attendant {
-		id: ID!
-		fullName: String!
-		email: String!
-		phone: String!
-		document: String!
-		createdAt: String
-		updatedAt: String
- 	}
+    id: ID!
+    fullName: String!
+    email: String!
+    phone: String!
+    document: String!
+    createdAt: String
+    updatedAt: String
+   }
 
-  #args 
+  #args
   input AttendantInput {
-		fullName: String!
-		email: String!
-		phone: String!
-		document: String!
+    fullName: String!
+    email: String!
+    phone: String!
+    document: String!
  }
 `;

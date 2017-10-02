@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const AttendantSchema = new Schema({
@@ -7,7 +8,7 @@ const AttendantSchema = new Schema({
   },
   email: {
     type: String,
-    unique: true 
+    unique: true,
   },
   phone: {
     type: String,
@@ -17,11 +18,11 @@ const AttendantSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-  }
+  },
 });
 
 mongoose.model('attendant', AttendantSchema);

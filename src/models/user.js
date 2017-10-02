@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -7,7 +8,7 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
-    unique: true 
+    unique: true,
   },
   phone: {
     type: String,
@@ -17,21 +18,21 @@ const UserSchema = new Schema({
   },
   account: {
     type: Schema.Types.ObjectId,
-    ref: 'account'
+    ref: 'account',
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
     type: Date,
-  }
+  },
 });
 
-UserSchema.statics.findAccount = function(id) {
+UserSchema.statics.findAccount = function findAccount(id) {
   return this.findById(id)
     .populate('account')
     .then(user => user.account);
-}
+};
 
 mongoose.model('user', UserSchema);

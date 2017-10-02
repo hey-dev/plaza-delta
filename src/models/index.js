@@ -7,5 +7,5 @@ require('./feedback');
 require('./order');
 require('./product');
 require('./search_history');
-require('./user');
 require('./shopping_cart');
+require('./user');

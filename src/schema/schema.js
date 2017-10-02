@@ -2,6 +2,7 @@ const { makeExecutableSchema } = require('graphql-tools');
 
 const resolvers = require('../resolvers');
 const Mutations = require('./mutations');
+
 // types
 const Account = require('./account_type');
 const Attendant = require('./attendant_type');
@@ -15,6 +16,8 @@ const RootQueryType = require('./root_query_type');
 
 const schema = makeExecutableSchema({
   typeDefs: [
+    RootQueryType,
+    Mutations,
     Account,
     Attendant,
     Establishment,
@@ -22,11 +25,9 @@ const schema = makeExecutableSchema({
     Order,
     Product,
     ShoppingCart,
-    User, 
-    Mutations,
-    RootQueryType, 
+    User,
   ],
-  resolvers
-})
+  resolvers,
+});
 
 module.exports = schema;

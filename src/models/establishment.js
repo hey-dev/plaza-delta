@@ -1,41 +1,42 @@
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
 const EstablishmentSchema = new Schema({
   name: {
     type: String,
-    unique: true
+    unique: true,
   },
   address: {
-    type: String
+    type: String,
   },
   phone: {
     type: String,
-    unique: true
+    unique: true,
   },
   attendant: {
     type: Schema.Types.ObjectId,
-    ref: 'attendant'
+    ref: 'attendant',
   },
   zone: {
-    type: String
+    type: String,
   },
   longitude: {
-    type: String
+    type: String,
   },
   latitude: {
-    type: String
+    type: String,
   },
   createdAt: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   updatedAt: {
-    type: Date
-  }
+    type: Date,
+  },
 });
 
-EstablishmentSchema.statics.findAttendant = function(id) {
+EstablishmentSchema.statics.findAttendant = function findAttendant(id) {
   return this.findById(id)
     .populate('attendant')
     .then(establishment => establishment.attendant);

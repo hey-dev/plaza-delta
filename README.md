@@ -12,7 +12,8 @@ Install dependencies and run `dev` mode
 - `npm start`
 
 ### MongoDB configuration
-install mongodb and run as local service
+
+Install mongodb and run as local service
 
 -----------
 
@@ -25,4 +26,4 @@ install mongodb and run as local service
 
 ## GraphiQL Console
 
-`http://localhost:8000/graphql`
+`http://localhost:8000/graphiql`
