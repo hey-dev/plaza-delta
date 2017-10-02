@@ -12,14 +12,6 @@ const Product = require('./product_type');
 const ShoppingCart = require('./shopping_cart_type');
 const User = require('./user_type');
 const RootQueryType = require('./root_query_type');
-<<<<<<< HEAD
-const User = require('./user_type');
-
-const schema = makeExecutableSchema({
-  typeDefs: [RootQueryType, User],
-  resolvers,
-});
-=======
 
 const schema = makeExecutableSchema({
   typeDefs: [
@@ -36,6 +28,5 @@ const schema = makeExecutableSchema({
   ],
   resolvers
 })
->>>>>>> godie007/create-schema-types
 
 module.exports = schema;

@@ -1,14 +1,10 @@
 const mongoose = require('mongoose');
-<<<<<<< HEAD
-
-=======
 const Account = mongoose.model('account');
 const Attendant = mongoose.model('attendant');
 const Establishment = mongoose.model('establishment');
 const Feedback = mongoose.model('feedback');
 const Order = mongoose.model('order');
 const Product = mongoose.model('product');
->>>>>>> godie007/create-schema-types
 const User = mongoose.model('user');
 const ShoppingCart = mongoose.model('shoppingCart');
 const _ = require('lodash');
@@ -17,13 +13,6 @@ const _ = require('lodash');
 
 const resolvers = {
   Query: {
-<<<<<<< HEAD
-    users: () => User.find({}),
-  },
-};
-
-module.exports = resolvers;
-=======
     user: (parentValue, { id }) => User.findById(id),
     users: () => User.find({}),
     establishment: (parentValue, { id }) => Establishment.findById(id),
@@ -67,4 +56,3 @@ module.exports = resolvers;
 };
 
 module.exports = resolvers;
->>>>>>> godie007/create-schema-types
