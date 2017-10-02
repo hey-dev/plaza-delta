@@ -1,29 +1,19 @@
 module.exports = `
-<<<<<<< HEAD
-  type User {
-    id: ID!
-    name: String!
-    email: String!
-    phone: String
-  }
-`;
-=======
-	type User {
+  type Attendant {
 		id: ID!
 		fullName: String!
 		email: String!
 		phone: String!
 		document: String!
-		account: Account
 		createdAt: String
 		updatedAt: String
-	}	
-	# args
-	input UserInput {
+ 	}
+
+  #args 
+  input AttendantInput {
 		fullName: String!
 		email: String!
 		phone: String!
 		document: String!
-	}
-`
->>>>>>> godie007/create-schema-types
+ }
+`;
