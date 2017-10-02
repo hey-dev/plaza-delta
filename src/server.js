@@ -2,7 +2,7 @@ require('./models');
 
 const bodyParser = require('body-parser');
 const express = require('express');
-const expressGraphQL = require('express-graphql');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const tunnel = require('tunnel-ssh');
@@ -20,11 +20,10 @@ mongoose.connection
   .once('open', () => console.log('ʕ·ᴥ·ʔ connected to MongoDB'))
   .on('error', err => console.log(err));
 
-app.use(bodyParser.json());
-app.use('/graphql', expressGraphQL({
+app.use('/graphql', bodyParser.json(), graphqlExpress({
   schema,
-  resolvers,
-  graphiql: true,
+  resolvers
 }));
+app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 module.exports = app;

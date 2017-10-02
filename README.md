@@ -25,4 +25,4 @@ install mongodb and run as local service
 
 ## GraphiQL Console
 
-`http://localhost:8000/graphql`
+`http://localhost:8000/graphiql`
