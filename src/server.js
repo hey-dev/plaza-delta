@@ -10,9 +10,7 @@ const schema = require('./schema/schema');
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/plaza-delta', {
-  useMongoClient: true,
-});
+mongoose.connect('mongodb://localhost/plaza-delta', { useMongoClient: true });
 mongoose.connection
   .once('open', () => console.log('ʕ·ᴥ·ʔ connected to MongoDB'))
   .on('error', err => console.log(err));
@@ -28,8 +26,10 @@ app.use('/graphql', graphqlExpress({
   }),
 }));
 
-app.get('/graphiql', graphiqlExpress({
-  endpointURL: '/graphql',
-}));
+app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+
+app.listen(8000, () => {
+  console.log('(ﾉ◕ヮ◕)ﾉ GraphiQL Console running on http://localhost:8000/graphql');
+});
 
 module.exports = app;

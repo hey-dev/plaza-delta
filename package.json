@@ -2,22 +2,37 @@
   "name": "plaza-delta",
   "version": "0.0.1",
   "description": "graphql server for plaza delta deliveries",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js",
-    "lint": "esw -w -c config.eslint.json src/**/*.js index.js"
+  "keywords": ["graphql", "express", "server", "backend"],
+  "homepage": "https://github.com/hey-dev/plaza-delta#readme",
+  "bugs": {
+    "email": "workspace.armenia@gmail.com",
+    "url": "https://github.com/hey-dev/plaza-delta/issues"
   },
+  "license": "ISC",
+  "author": {
+    "name": "Alejandro Baez",
+    "email": "nativo.alejandro@gmail.com"
+  },
+  "contributors": [{
+    "name": "Alejandro Baez",
+    "email": "nativo.alejandro@gmail.com"
+  }, {
+    "name": "Diego Rayo",
+    "email": "diegofrayo@gmail.com",
+    "url": "http://diegofrayo.com"
+  }, {
+    "name": "diego Echeverry",
+    "email": "diegof.e3@gmail.com"
+  }],
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hey-dev/plaza-delta.git"
   },
-  "keywords": [],
-  "author": "Alejandro Baez (Hey Dev!)",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hey-dev/plaza-delta/issues"
+  "scripts": {
+    "start": "nodemon index.js",
+    "lint": "esw -w -c config.eslint.json src/**/*.js"
   },
-  "homepage": "https://github.com/hey-dev/plaza-delta#readme",
   "dependencies": {
     "apollo-server-express": "^1.1.2",
     "body-parser": "^1.18.2",
@@ -34,5 +49,9 @@
     "eslint-config-airbnb-base": "^11.3.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-watch": "^3.1.2"
-  }
+  },
+  "engines": {
+    "node": ">=8.6.0"
+  },
+  "private": true
 }
