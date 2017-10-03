@@ -3,6 +3,8 @@ module.exports = `
   type Query {
     users: [User]
     user(id: String): User
+    products: [Product]
+    product(id: String): Product
     establishment(id: String): Establishment
     establishments: [Establishment]
     feedback(id: String): Feedback

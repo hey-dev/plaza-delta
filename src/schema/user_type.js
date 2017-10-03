@@ -5,6 +5,7 @@ module.exports = `
     email: String!
     phone: String!
     document: String!
+    orders: [Order]
     account: Account
     createdAt: String
     updatedAt: String

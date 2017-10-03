@@ -2,6 +2,8 @@ module.exports = `
   type Order  implements Audit {
     id: ID!
     user: User!
+    name: String!
+    description: String
     address: String!
     total: Float!
     createdAt: String

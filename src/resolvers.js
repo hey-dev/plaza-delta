@@ -13,6 +13,8 @@ const resolvers = {
   Query: {
     user: (parentValue, { id }) => User.findById(id),
     users: () => User.find({}),
+    products: () => Product.find({}),
+    product: (parentValue, { id }) => Product.findById(id),
     establishment: (parentValue, { id }) => Establishment.findById(id),
     establishments: () => Establishment.find({}),
     feedback: (parentValue, { id }) => Feedback.findById(id),
@@ -21,10 +23,25 @@ const resolvers = {
     account(user) {
       return User.findAccount(user._id); // eslint-disable-line
     },
+    orders(user) {
+      return Order.find({
+        'user':user._id
+      },{
+        name: 1,
+        description:  1,
+        total:  1,
+        createdAt:1
+      }).sort( { createdAt: -1 }).limit(5) // eslint-disable-line
+    },
   },
   Establishment: {
     attendant(establishment) {
       return Establishment.findAttendant(establishment._id); // eslint-disable-line
+    },
+    products(establishment) {
+      return Product.find({
+        'establishment':establishment._id
+      }) // eslint-disable-line
     },
   },
   Mutation: {
@@ -56,3 +73,4 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+

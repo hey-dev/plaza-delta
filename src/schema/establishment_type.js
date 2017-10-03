@@ -4,6 +4,7 @@ module.exports = `
     name: String!
     address: String!
     phone: String!
+    products: [Product]
     attendant: Attendant
     zone: String
     longitude: String
