@@ -1,5 +1,5 @@
 module.exports = `
-  type Establishment {
+  type Establishment  implements Audit {
     id: ID!
     name: String!
     address: String!

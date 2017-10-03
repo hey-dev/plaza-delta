@@ -1,5 +1,5 @@
 module.exports = `
-  type Attendant {
+  type Attendant implements Person, Audit {
     id: ID!
     fullName: String!
     email: String!

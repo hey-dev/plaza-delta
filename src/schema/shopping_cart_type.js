@@ -1,5 +1,5 @@
 module.exports = `
-  type ShoppingCart {
+  type ShoppingCart implements Audit {
     id: ID!
     product: Product!
     order: Order!

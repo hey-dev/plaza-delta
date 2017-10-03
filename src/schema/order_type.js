@@ -1,5 +1,5 @@
 module.exports = `
-  type Order {
+  type Order  implements Audit {
     id: ID!
     user: User!
     address: String!

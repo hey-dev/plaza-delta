@@ -1,5 +1,5 @@
 module.exports = `
-  type User {
+  type User implements Person, Audit {
     id: ID!
     fullName: String!
     email: String!

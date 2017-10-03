@@ -1,5 +1,5 @@
 module.exports = `
-  Type Carrier {
+  Type Carrier implements Person, Audit {
     id: ID!
     fullName: String!
     email: String!

@@ -1,5 +1,5 @@
 module.exports = `
-  type Feedback {
+  type Feedback  implements Audit {
     id: ID!
     comment: String!
     ranking: Int

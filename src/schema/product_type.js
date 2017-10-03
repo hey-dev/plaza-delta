@@ -1,5 +1,5 @@
 module.exports = `
-  type Product {
+  type Product  implements Audit {
     id: ID!
     name: String!
     price: Float!

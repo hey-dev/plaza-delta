@@ -1,5 +1,5 @@
 module.exports = `
-  type Account {
+  type Account  implements Audit {
     id: ID!
     username: String!
     password: String!
