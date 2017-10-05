@@ -2,14 +2,16 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const DeliveriesSchema = new Schema({
-  idDeliveryMan: {
+const Category = new Schema({
+  parent: {
     type: Schema.Types.ObjectId,
-    ref: 'deliveryMan',
+    ref: 'category',
   },
-  Establishment: {
-    type: Schema.Types.ObjectId,
-    ref: 'establishment',
+  name: {
+    type: String,
+  },
+  description: {
+    type: String,
   },
   createdAt: {
     type: Date,
@@ -21,4 +23,4 @@ const DeliveriesSchema = new Schema({
 });
 
 // add Model methods below ...
-mongoose.model('deliveries', DeliveriesSchema);
+mongoose.model('category', Category);

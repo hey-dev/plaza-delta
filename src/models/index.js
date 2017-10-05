@@ -8,4 +8,7 @@ require('./order');
 require('./product');
 require('./search_history');
 require('./shopping_cart');
+require('./working_hour');
 require('./user');
+require('./location');
+require('./category');

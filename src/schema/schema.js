@@ -13,6 +13,9 @@ const Product = require('./product_type');
 const ShoppingCart = require('./shopping_cart_type');
 const User = require('./user_type');
 const RootQueryType = require('./root_query_type');
+const WorkingHoursType = require('./working_hour_type');
+const LocationType = require('./location_type');
+const CategoryType = require('./category_type');
 
 const schema = makeExecutableSchema({
   typeDefs: [
@@ -26,6 +29,9 @@ const schema = makeExecutableSchema({
     Product,
     ShoppingCart,
     User,
+    WorkingHoursType,
+    LocationType,
+    CategoryType,
   ],
   resolvers,
 });

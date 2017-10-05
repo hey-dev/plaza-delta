@@ -2,14 +2,19 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const DeliveriesSchema = new Schema({
-  idDeliveryMan: {
+const Location = new Schema({
+  user: {
     type: Schema.Types.ObjectId,
-    ref: 'deliveryMan',
+    ref: 'user',
   },
-  Establishment: {
-    type: Schema.Types.ObjectId,
-    ref: 'establishment',
+  address: {
+    type: String,
+  },
+  longitude: {
+    type: String,
+  },
+  latitude: {
+    type: String,
   },
   createdAt: {
     type: Date,
@@ -21,4 +26,4 @@ const DeliveriesSchema = new Schema({
 });
 
 // add Model methods below ...
-mongoose.model('deliveries', DeliveriesSchema);
+mongoose.model('location', Location);

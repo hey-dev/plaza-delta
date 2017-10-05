@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-// [Order|idOrder;idUser;idEstablishment;idProduct;createdAt;updatedAt]
 const OrderSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,

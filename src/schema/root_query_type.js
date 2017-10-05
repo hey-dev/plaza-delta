@@ -7,6 +7,12 @@ module.exports = `
     product(id: String): Product
     establishment(id: String): Establishment
     establishments: [Establishment]
+    workingHour(id: String): WorkingHour
+    workingHours: [WorkingHour]
+    location(id: String): Location
+    locations: [Location]
+    category(id: String): Category
+    categorys: [Category]
     feedback(id: String): Feedback
   }
   interface Person {
