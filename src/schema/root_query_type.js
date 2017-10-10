@@ -4,16 +4,16 @@ module.exports = `
     users: [User]
     user(id: String): User
     products: [Product]
-    product(id: String): Product
-    establishment(id: String): Establishment
+    product(id: ID!): Product
+    establishment(id: ID!): Establishment
     establishments: [Establishment]
-    workingHour(id: String): WorkingHour
+    workingHour(id: ID!): WorkingHour
     workingHours: [WorkingHour]
-    location(id: String): Location
+    location(id: ID!): Location
     locations: [Location]
-    category(id: String): Category
+    category(id: ID!): Category
     categorys: [Category]
-    feedback(id: String): Feedback
+    feedback(id: ID!): Feedback
   }
   interface Person {
     id: ID!
