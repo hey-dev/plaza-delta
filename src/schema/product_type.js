@@ -5,6 +5,7 @@ module.exports = `
     price: Float!
     description: String!
     establishment: Establishment
+    category: Category
     createdAt: String
     updatedAt: String
   }

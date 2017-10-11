@@ -12,6 +12,8 @@ module.exports = `
   }
   # args
   input OrderInput {
+    name: String!
+    description: String
     user: String!
     address: String!
     total: Float!

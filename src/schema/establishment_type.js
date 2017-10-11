@@ -6,6 +6,7 @@ module.exports = `
     phone: String!
     products: [Product]
     attendant: Attendant
+    categories: [Category]
     workingHours:[WorkingHour]
     zone: String
     longitude: String

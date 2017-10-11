@@ -3,6 +3,7 @@ module.exports = `
     id: ID!
     parent: String
     name: String
+    products:[Product]
     description: String
     createdAt: String
     updatedAt: String

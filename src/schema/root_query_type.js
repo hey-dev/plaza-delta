@@ -14,7 +14,7 @@ type Query {
   order(id: ID!): Order
   orders: [Order]
   category(id: ID!): Category
-  categorys: [Category]
+  categories: [Category]
   feedback(id: ID!): Feedback
 }
 interface Person {
