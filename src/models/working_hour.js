@@ -8,10 +8,10 @@ const WorkingHours = new Schema({
     ref: 'establishment',
   },
   timeStart: {
-    type: Date,
+    type: Number,
   },
   timeEnd: {
-    type: Date,
+    type: Number,
   },
   createdAt: {
     type: Date,

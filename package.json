@@ -2,7 +2,12 @@
   "name": "plaza-delta",
   "version": "0.0.1",
   "description": "graphql server for plaza delta deliveries",
-  "keywords": ["graphql", "express", "server", "backend"],
+  "keywords": [
+    "graphql",
+    "express",
+    "server",
+    "backend"
+  ],
   "homepage": "https://github.com/hey-dev/plaza-delta#readme",
   "bugs": {
     "email": "workspace.armenia@gmail.com",
@@ -13,17 +18,21 @@
     "name": "Alejandro Baez",
     "email": "nativo.alejandro@gmail.com"
   },
-  "contributors": [{
-    "name": "Alejandro Baez",
-    "email": "nativo.alejandro@gmail.com"
-  }, {
-    "name": "Diego Rayo",
-    "email": "diegofrayo@gmail.com",
-    "url": "http://diegofrayo.com"
-  }, {
-    "name": "diego Echeverry",
-    "email": "diegof.e3@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Alejandro Baez",
+      "email": "nativo.alejandro@gmail.com"
+    },
+    {
+      "name": "Diego Rayo",
+      "email": "diegofrayo@gmail.com",
+      "url": "http://diegofrayo.com"
+    },
+    {
+      "name": "diego Echeverry",
+      "email": "diegof.e3@gmail.com"
+    }
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -46,8 +55,11 @@
   },
   "devDependencies": {
     "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^15.1.0",
     "eslint-config-airbnb-base": "^11.3.1",
-    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.4.0",
     "eslint-watch": "^3.1.2"
   },
   "engines": {

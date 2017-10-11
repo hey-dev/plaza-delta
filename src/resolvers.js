@@ -20,6 +20,8 @@ const resolvers = {
     workingHours: () => WorkingHour.find({}),
     location: (parentValue, { id }) => Location.findById(id),
     locations: () => Location.find({}),
+    order: (parentValue, { id }) => Order.findById(id),
+    orders: () => Order.find({}),
     category: (parentValue, { id }) => Category.findById(id),
     categorys: () => Category.find({}),
     products: () => Product.find({}),
@@ -34,7 +36,7 @@ const resolvers = {
     },
     orders(user) {
       return Order.find({
-        user: user._id,
+        user: user.id,
       }, {
         name: 1,
         description: 1,
@@ -45,7 +47,7 @@ const resolvers = {
   },
   Establishment: {
     attendant(establishment) {
-      return Establishment.findAttendant(establishment._id); // eslint-disable-line
+      return Establishment.findAttendant(establishment.id); // eslint-disable-line
     },
     products(establishment) {
       return Product.find({
@@ -56,6 +58,19 @@ const resolvers = {
       return WorkingHour.find({
         establishment: establishment.id,
       }) // eslint-disable-line
+    },
+  },
+  Product: {
+    establishment(product) {
+      return Product.findEstablishment(product.id); // eslint-disable-line
+    },
+
+  },
+  Order: {
+    products(order) {
+      return ShoppingCart.find({ order: order.id })
+        .then(cart => Product.findById(mongoose.Types.ObjectId(cart.product))
+          .then(p => console.log(p))); // eslint-disable-line
     },
   },
   Mutation: {
@@ -85,7 +100,8 @@ const resolvers = {
               WorkingHour.create(workingHour);
             });
             return establishmentCreated;
-          })).catch(err => console.log(err))).catch(err => console.log(err)),
+          }))
+          .catch(err => console.log(err))).catch(err => console.log(err)),
 
     createFeedback: (_, { feedback }) => Feedback.create(feedback),
     createProduct: (_, { product }) => Product.create(product),

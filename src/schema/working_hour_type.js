@@ -2,8 +2,8 @@ module.exports = `
   type WorkingHour implements Audit {
     id: ID!
     establishment: Establishment
-    timeStart: String
-    timeEnd: String
+    timeStart: Float
+    timeEnd: Float
     createdAt: String
     updatedAt: String
   }
@@ -11,7 +11,7 @@ module.exports = `
   # args
   input WorkingHourInput {
     establishment: String
-    timeStart: String!
-    timeEnd: String!
+    timeStart: Float!
+    timeEnd: Float!
   }
 `;

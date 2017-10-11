@@ -24,6 +24,10 @@ const ProductSchema = new Schema({
     type: Date,
   },
 });
-
+ProductSchema.statics.findEstablishment = function findEstablishment(id) {
+  return this.findById(id)
+    .populate('establishment')
+    .then(product => product.establishment);
+};
 // add Model methods below ...
 mongoose.model('product', ProductSchema);

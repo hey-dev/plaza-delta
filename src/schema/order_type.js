@@ -4,6 +4,7 @@ module.exports = `
     user: User!
     name: String!
     description: String
+    products: [Product]
     address: String!
     total: Float!
     createdAt: String
