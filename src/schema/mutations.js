@@ -13,7 +13,7 @@ module.exports = `
     createWorkingHour(workingHour: WorkingHourInput): WorkingHour
 
     # Product
-    createProduct(product: ProductInput): Product
+    createProduct(product: ProductInput, category: CategoryInput): Product
 
     # Category
     createCategory(category: CategoryInput): Category
