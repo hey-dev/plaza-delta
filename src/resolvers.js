@@ -54,27 +54,30 @@ const resolvers = {
 	},
 	Establishment: {
 		attendant(establishment) {
-      return Establishment.findAttendant(establishment.id); // eslint-disable-line
+			return Establishment.findAttendant(establishment.id); // eslint-disable-line
 		},
 		products(establishment) {
 			return Product.find({
 				establishment: establishment.id,
-      }) // eslint-disable-line
+		  }) // eslint-disable-line
 		},
-		categories(establishment) {
+		category(establishment) {
+			return Category.findById(establishment.category) // eslint-disable-line
+		},
+		categoriesByProduct(establishment) {
 			return Product.find({
 				establishment: establishment.id,
-      }).then(productsFound => productsFound.map(product=> Category.findById(product.category))) // eslint-disable-line
+			}).then(productsFound => productsFound.map(product=> Category.findById(product.category))) // eslint-disable-line
 		},
 		workingHours(establishment) {
 			return WorkingHour.find({
 				establishment: establishment.id,
-      }) // eslint-disable-line
+			}) // eslint-disable-line
 		},
 	},
 	Product: {
 		establishment(product) {
-      return Product.findById(product.id); // eslint-disable-line
+     		 return Product.findById(product.id); // eslint-disable-line
 		},
 		category(product) {
       return Category.findById(product.category); // eslint-disable-line
@@ -103,8 +106,8 @@ const resolvers = {
 				.then((attendantCreated) => {
         establishment.attendant = attendantCreated.id; // eslint-disable-line
 					return establishment;
-					// se crea la categoria
-				}).then(establishmentWithAttendant => Category.create(category).then((categoryCreated) => {
+					// se crea la categoria si existe o sino se deja la existente
+				}).then(establishmentWithAttendant => Category.findOneAndUpdate({ "name": category.name },category,{ upsert: true, new: true }).then((categoryCreated) => {
           establishmentWithAttendant.category = categoryCreated.id; // eslint-disable-line
 					return establishmentWithAttendant;
 					// se crea el establecimiento
@@ -113,7 +116,12 @@ const resolvers = {
 						// se crean los horarios de atencion
 						workingHours.forEach((workingHour) => {
               workingHour.establishment = establishmentCreated.id; // eslint-disable-line
-							WorkingHour.create(workingHour);
+							// se crea el horario de atencion si ya existe utiliza el que ya estaba creado
+							WorkingHour.findOneAndUpdate(
+								{ 
+									"timeStart": workingHour.timeStart, 
+									"timeEnd": workingHour.timeEnd 
+								},workingHour,{ upsert: true, new: true }).then(wh => console.log(wh));
 						});
 						return establishmentCreated;
 					}))
