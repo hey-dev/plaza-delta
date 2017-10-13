@@ -48,7 +48,7 @@ const resolvers = {
 	},
 	User: {
 		account(user) {
-                return User.findAccount(user._id); // eslint-disable-line
+			return User.findAccount(user._id); 
 		},
 		orders(user) {
 			return Order.find({
@@ -60,45 +60,58 @@ const resolvers = {
 				createdAt: 1,
 			}).sort({
 				createdAt: -1
-                }).limit(5) // eslint-disable-line
+			}).limit(5); 
 		},
 	},
 	Category: {
 		products(category) {
 			return Product.find({
 				category: category.id,
-                }) // eslint-disable-line
+			}); 
 		},
 	},
 	Establishment: {
 		attendant(establishment) {
-                return Establishment.findAttendant(establishment.id); // eslint-disable-line
+			return Establishment.findAttendant(establishment.id);
 		},
 		products(establishment) {
 			return Product.find({
 				establishment: establishment.id,
-                }) // eslint-disable-line
+			});
 		},
 		category(establishment) {
-                return Category.findById(establishment.category) // eslint-disable-line
+			return Category.findById(establishment.category);
 		},
 		categoriesByProduct(establishment) {
+			// se listan los productos de un establecimiento
 			return Product.find({
 				establishment: establishment.id,
-                }).then(productsFound => productsFound.map(product => Category.findById(product.category))) // eslint-disable-line
+				// se busca la categoria de cada uno de los productos
+			}).then(productsFound => productsFound.map(product => {
+				return Category.findById(product.category);
+			})).then(resolveCategoies => Promise.all(resolveCategoies))
+			// se filtran los registro que no son vacios
+				.then(categories => categories.filter(dataCategory => dataCategory !== null))
+				.then(categiesNotNull=>
+					// se realiza un distinct respecto al nombre de las categorias
+					categiesNotNull.reduce((acc,data)=>{
+						if(!acc.some(a=> a.name === data.name)) acc.push(data);
+						return acc;
+					},[])
+				);
 		},
 		workingHours(establishment) {
 			return WorkingHour.find({
 				establishment: establishment.id,
-                }) // eslint-disable-line
+			});
 		},
 	},
 	Product: {
 		establishment(product) {
-                return Product.findById(product.id); // eslint-disable-line
+			return Establishment.findById(product.establishment);
 		},
 		category(product) {
-                return Category.findById(product.category); // eslint-disable-line
+			return Category.findById(product.category);
 		},
 	},
 	Order: {
@@ -109,7 +122,7 @@ const resolvers = {
 				.then(cart => cart.map(c =>
 					Product.findById(mongoose.Types.ObjectId(c.product)))
 					.catch(err => console.log(err))
-                    ); // eslint-disable-line
+				); 
 		},
 	},
 	Mutation: {
@@ -118,7 +131,7 @@ const resolvers = {
 			user
 		}) =>
 			Account.create(account).then((accountCreated) => {
-                    user.account = accountCreated.id; // eslint-disable-line
+				user.account = accountCreated.id; 
 				return User.create(user);
 			}).catch(err => console.log(err)),
 		createWorkingHour: (_, {
@@ -134,7 +147,7 @@ const resolvers = {
 		// se crean el que atiende
 			Attendant.create(attendant)
 				.then((attendantCreated) => {
-                    establishment.attendant = attendantCreated.id; // eslint-disable-line
+					establishment.attendant = attendantCreated.id; 
 					return establishment;
 					// se crea la categoria si existe o sino se deja la existente
 				}).then(establishmentWithAttendant => Category.findOneAndUpdate({
@@ -143,14 +156,14 @@ const resolvers = {
 					upsert: true,
 					new: true
 				}).then((categoryCreated) => {
-                        establishmentWithAttendant.category = categoryCreated.id; // eslint-disable-line
+					establishmentWithAttendant.category = categoryCreated.id; 
 					return establishmentWithAttendant;
 					// se crea el establecimiento
 				}).then(establishmentWithCategory => Establishment.create(establishmentWithCategory)
 					.then((establishmentCreated) => {
 						// se crean los horarios de atencion
 						workingHours.forEach((workingHour) => {
-                                workingHour.establishment = establishmentCreated.id; // eslint-disable-line
+							workingHour.establishment = establishmentCreated.id; 
 							// se crea el horario de atencion si ya existe utiliza el que ya estaba creado
 							WorkingHour.findOneAndUpdate({
 								"timeStart": workingHour.timeStart,
@@ -178,9 +191,15 @@ const resolvers = {
 				new: true
 			}).then((categoryCreated) => {
 				product.category = categoryCreated.id;
-				return Product.create(product);
+				return Product.findOneAndUpdate({
+					"name": product.name,
+					"establishment": product.establishment
+				}, product, {
+					upsert: true,
+					new: true
+				});
 			}),
-        
+
 		createCategory: (_, {
 			category
 		}) => Category.create(category),
@@ -194,7 +213,7 @@ const resolvers = {
 		}) =>
 			Order.create(order).then((orderCreated) => {
 				shoppingCart.forEach((cart) => {
-                    cart.order = orderCreated.id; // eslint-disable-line
+					cart.order = orderCreated.id;
 					ShoppingCart.create(cart);
 				});
 				return orderCreated;
